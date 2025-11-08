@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bank Statement Generator</title>
+    
+    <!-- TailwindCSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- xlsx for Excel import/export -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+      body {
+        font-family: 'Roboto', sans-serif;
+      }
+      /* Custom scrollbar for better aesthetics */
+      ::-webkit-scrollbar { width: 8px; height: 8px; }
+      ::-webkit-scrollbar-track { background: #f1f1f1; }
+      ::-webkit-scrollbar-thumb { background: #888; border-radius: 4px; }
+      ::-webkit-scrollbar-thumb:hover { background: #555; }
+      
+      /* Styles for the responsive statement preview */
+      .statement-container-scaler {
+          transform-origin: top center;
+          margin: 0 auto;
+      }
+      @media (max-width: 820px) { /* Approx A4 width (210mm ~ 794px) + margins */
+        .statement-container-scaler {
+          /* Scale the A4 container to fit the viewport, leaving 1rem margin on each side */
+          transform: scale(calc((100vw - 2rem) / 794));
+        }
+      }
+
+      /* Styles for printing */
+      @page { size: A4; margin: 0; }
+      @media print {
+        body { background-color: #fff; }
+        .statement-preview-container { box-shadow: none !important; }
+        .page-break { page-break-after: always; }
+        .page-break:last-child { page-break-after: avoid; }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>

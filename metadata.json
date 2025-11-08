@@ -1,0 +1,5 @@
+{
+  "name": "Bank Statement Generator",
+  "description": "A tool to create, manage, and print bank statements with data persistence. Users can add, edit, and delete transactions, manage multiple users, and export data to PDF or Excel format.",
+  "requestFramePermissions": []
+}
